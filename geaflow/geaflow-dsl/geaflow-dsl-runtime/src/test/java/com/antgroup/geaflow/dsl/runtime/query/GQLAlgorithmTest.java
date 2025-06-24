@@ -32,6 +32,16 @@ public class GQLAlgorithmTest {
     private final String TEST_GRAPH_PATH = "/tmp/geaflow/dsl/algorithm/test/graph";
 
     @Test
+    public void testAlgorithm_009() throws Exception {
+        QueryTester
+                .build()
+                .withGraphDefine("/query/modern_graph.sql") // 使用预定义图
+                .withQueryPath("/query/gql_algorithm_009.sql") // SQL查询文件
+                .execute()
+                .checkSinkResult(); // 检查结果
+    }
+
+    @Test
     public void testAlgorithm_001() throws Exception {
         QueryTester
             .build()
